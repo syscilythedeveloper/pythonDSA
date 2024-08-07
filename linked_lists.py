@@ -72,6 +72,10 @@ class LinkedList:
             self.tail = None
         return temp 
     
+
+
+
+
     def get(self, index):
         if index < 0 or index >=self.length: 
             return None 
@@ -84,6 +88,7 @@ class LinkedList:
         temp = self.get(index)
         if temp: 
             temp.value = value
+            return True
         return False
     
     def insert(self, index, value): 
@@ -134,22 +139,54 @@ class LinkedList:
 
         print("Debug - Final head:", self.head.value)
         print("Debug - Final tail:", self.tail.value)
+    
+    def find_middle_node(self):
+       slow = self.head 
+       fast = self.head
+
+       while fast is not None and fast.next is not None: 
+           slow = slow.next
+           fast = fast.next.next
+       return slow
+    def find_kth_from_end(ll, k):
+        slow = fast = ll.head 
+        
+        for _ in range (k): 
+            if fast is None: 
+                return None 
+            fast = fast.next
+            
+        while fast is not None: 
+            slow = slow.next 
+            fast = fast.next 
+        return slow
+    
+    def remove_duplicates(self):
+        #create empty set 
+        values = set()
+        previous = None 
+        current = self.head
+        
+        while current is not None: 
+            if current.value in values:
+                previous.next = current.next 
+                self.length-=1
+            else: 
+                values.add(current.value)
+                previous = current
+            current = current.next
+
+    
+
         
 
 
         
 
 my_linked_list = LinkedList(0)
+my_linked_list.append(1)
 my_linked_list.append(2)
-my_linked_list.insert(1,1)
 my_linked_list.append(3)
 my_linked_list.append(4)
 my_linked_list.append(5)
-
-print("Original list:")
-my_linked_list.print_list()
-
-my_linked_list.reverse()
-
-print("\nReversed list:")
-my_linked_list.print_list()
+my_linked_list.find_middle_node()
