@@ -18,10 +18,15 @@ from itertools import islice
 def topKFrequency(nums, k):
     count = {}
     freq = [[] for i in range(len(nums) +1)]
+    print("Freq before: ", freq)
+    print("Count before: ", count)
     for n in nums: 
         count[n] = 1 + count.get(n, 0) 
     for n, c in count.items():
         freq[c].append(n)
+    print("Freq after: ",freq)
+    print("Count after: ", count)
+    
 
     res=[]
     for i in range(len(freq) -1, 0, -1):
@@ -32,19 +37,19 @@ def topKFrequency(nums, k):
 
 
 
-#O(n log n)
-def topFrequency(nums, k): 
-    #make dict of numbers
-    ans  = Counter(nums)
+# #O(n log n)
+# def topFrequency(nums, k): 
+#     #make dict of numbers
+#     ans  = Counter(nums)
 
-    #sort dictionary based on value 
-    sorted_ans = dict(sorted(ans.items(), key=lambda item: item[1], reverse=True))
+#     #sort dictionary based on value 
+#     sorted_ans = dict(sorted(ans.items(), key=lambda item: item[1], reverse=True))
 
-    #make list of out of range up to K 
-    top_k_items = list(islice(sorted_ans.items(), k))
+#     #make list of out of range up to K 
+#     top_k_items = list(islice(sorted_ans.items(), k))
    
-    output = [item[0] for item in top_k_items]
-    return output
+#     output = [item[0] for item in top_k_items]
+#     return output
 
 
 
@@ -52,6 +57,6 @@ def topFrequency(nums, k):
 
 
 print(topKFrequency([1,2,2,3,3,3], k =2))
-print(topFrequency([1,2,2,3,3,3], k =2))
-print(topFrequency([1,1,1,2,3,3,3,3,3,4,5,5,6,7,8,8,8,8,8,8], k =4))
+#print(topFrequency([1,2,2,3,3,3], k =2))
+#print(topFrequency([1,1,1,2,3,3,3,3,3,4,5,5,6,7,8,8,8,8,8,8], k =4))
 print(topKFrequency([1,1,1,2,3,3,3,3,3,4,5,5,6,7,8,8,8,8,8,8], k =4))
