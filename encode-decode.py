@@ -23,6 +23,9 @@ def decode(s):
         i = j
     return result   
 
-
 print(encode(["I", "Love", "You"]))
+print(decode(encode(["I", "Love", "You"])))
+
+
+
 
