@@ -44,9 +44,13 @@ class BinaryTree:
         
 
 firstBinary = BinaryTree()
-firstBinary.insert(2)
-firstBinary.insert(1)
-firstBinary.insert(3)
+firstBinary.insert(47)
+firstBinary.insert(21)
+firstBinary.insert(76)
+firstBinary.insert(84)
+firstBinary.insert(76)
+firstBinary.insert(76)
+firstBinary.insert(76)
 print(firstBinary.root.value)
 print(firstBinary.root.left.value)
 print(firstBinary.root.right.value)
