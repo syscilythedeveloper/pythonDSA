@@ -21,6 +21,7 @@ class MaxHeap:
         while current > 0 and self.heap[current] > self.heap[self._parent(current)]: 
             self._swap(current, self._parent(current))
             current = self._parent(current)
+            
     def remove(self):
         if len(self.heap ) == 0:
             return None
