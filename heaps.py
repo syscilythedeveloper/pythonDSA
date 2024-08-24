@@ -53,20 +53,35 @@ class MaxHeap:
                 index = max_index
             else: 
                 return 
+            
+#Write a function named stream_max that takes as its input a list of integers (nums). The function should return a list of the same length, where each element in the output list is the maximum number seen so far in the input list.
+
+#ex input: [1, 3, 2, 5, 4], output[1, 3, 3, 5, 5].
+#ex input: [7, 2, 4, 6, 1], output[7, 7, 7, 7, 7].
+
+def stream_max(nums): 
+    outputArr = [0] * len(nums) 
+    max_heap = MaxHeap()
+    for i, num in enumerate(nums):
+        max_heap.insert(num)
+        outputArr[i] = max_heap.heap[0]
+    return outputArr
+
+print(stream_max([1,3,2,5,4]))
+print(stream_max([7, 2, 4, 6, 1]))
 
 
+# myheap = MaxHeap()
+# myheap.insert(95)
+# myheap.insert(75)
+# myheap.insert(80)
 
-myheap = MaxHeap()
-myheap.insert(95)
-myheap.insert(75)
-myheap.insert(80)
+# myheap.insert(55)
+# myheap.insert(60)
+# myheap.insert(50)
 
-myheap.insert(55)
-myheap.insert(60)
-myheap.insert(50)
-
-print(myheap.heap)
-myheap.remove()
-print(myheap.heap)
-myheap.remove()
-print(myheap.heap)
+# print(myheap.heap)
+# myheap.remove()
+# print(myheap.heap)
+# myheap.remove()
+# print(myheap.heap)
