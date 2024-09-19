@@ -175,6 +175,19 @@ class LinkedList:
                 values.add(current.value)
                 previous = current
             current = current.next
+    def bubble_sort(self):
+        if self.length < 2: 
+            return 
+        sorted_until = None 
+        while sorted_until != self.head.next: 
+            current = self.head 
+            while current.next != sorted_until: 
+                next_node = current.next 
+                if current.value > next_node.value:
+                    current.value, next_node.value = next_node.value, current.value
+                current = current.next 
+            sorted_until = current
+        
 
     
 
@@ -187,6 +200,9 @@ my_linked_list = LinkedList(0)
 my_linked_list.append(1)
 my_linked_list.append(2)
 my_linked_list.append(3)
+my_linked_list.append(7)
 my_linked_list.append(4)
 my_linked_list.append(5)
 my_linked_list.find_middle_node()
+my_linked_list.bubble_sort()
+my_linked_list.print_list()
