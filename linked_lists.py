@@ -187,6 +187,9 @@ class LinkedList:
                     current.value, next_node.value = next_node.value, current.value
                 current = current.next 
             sorted_until = current
+
+
+
         
 
     
