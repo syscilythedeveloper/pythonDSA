@@ -86,3 +86,29 @@ def reverse_string(string):
 print(reverse_string("target"))
 print(reverse_string(""))
 
+
+class MinStack:
+
+    def __init__(self):
+        self.stack_list = []
+        self.min_stack = []
+        
+
+    def push(self, val: int) -> None:
+        self.stack_list.append(val)
+        val = min(val, self.min_stack[-1] if self.min_stack else val)
+        self.min_stack.append(val)
+        
+
+    def pop(self) -> None:
+        self.stack_list.pop()
+        self.min_stack.pop()
+        
+
+    def top(self) -> int:
+        return self.stack_list[-1]
+        
+
+    def getMin(self) -> int:
+        return self.min_stack[-1]
+        
